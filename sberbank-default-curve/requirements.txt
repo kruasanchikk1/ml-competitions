@@ -1,0 +1,10 @@
+polars
+pandas
+numpy
+scikit-learn
+statsmodels
+datasets
+matplotlib
+seaborn
+psutil
+openpyxl
