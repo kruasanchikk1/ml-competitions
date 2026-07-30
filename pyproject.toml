@@ -1,0 +1,27 @@
+[project]
+name = "ml-competitions"
+version = "0.1.0"
+description = "Notebooks and reports for ML competitions and research projects"
+authors = [
+    { name = "kruasanchikk1", email = "kruasanchikk1@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "pandas",
+    "numpy",
+    "scipy",
+    "scikit-learn",
+    "xgboost",
+    "imbalanced-learn",
+    "implicit",
+    "pyarrow",
+    "matplotlib",
+    "seaborn",
+    "tqdm",
+    "jupyter",
+    "pymupdf",
+    "pillow",
+]
+
+[tool.uv]
+package = false
