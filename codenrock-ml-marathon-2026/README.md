@@ -20,4 +20,6 @@
 
 ## Сертификат
 
-*Добавлю, когда придёт.*
+<img src="certificate.png" width="420" alt="Сертификат участника Новогоднего ML-марафона от Codenrock">
+
+PDF-версия: [certificate.pdf](certificate.pdf)
