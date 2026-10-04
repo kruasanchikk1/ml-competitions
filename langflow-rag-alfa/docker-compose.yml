@@ -1,0 +1,40 @@
+﻿services:
+  qdrant:
+    image: qdrant/qdrant:v1.15.3
+    container_name: rag_qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_storage:/qdrant/storage
+    restart: unless-stopped
+
+  langflow:
+    build:
+      context: .
+      dockerfile: docker/langflow.Dockerfile
+    image: langflow-rag-alfa-langflow:local
+    container_name: rag_langflow
+    ports:
+      - "7860:7860"
+    environment:
+      - LANGFLOW_SSRF_ALLOWED_HOSTS=qdrant
+      - LANGFLOW_AUTO_LOGIN=true
+      - LANGFLOW_WORKER_TIMEOUT=180
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - LANGFUSE_PUBLIC_KEY=${LANGFUSE_PUBLIC_KEY:-}
+      - LANGFUSE_SECRET_KEY=${LANGFUSE_SECRET_KEY:-}
+      - LANGFUSE_HOST=${LANGFUSE_HOST:-https://cloud.langfuse.com}
+      - HF_HOME=/app/.cache/huggingface
+    volumes:
+      - langflow_data:/app/langflow
+      - ./langflow_flows:/app/flows
+      - hf_cache:/app/.cache/huggingface
+    depends_on:
+      - qdrant
+    restart: unless-stopped
+
+volumes:
+  qdrant_storage:
+  langflow_data:
+  hf_cache:

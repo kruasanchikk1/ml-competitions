@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+eval/results.json
+langflow_data/
+qdrant_storage/
+data/raw/*
+!data/raw/.gitkeep
