@@ -26,6 +26,7 @@
 | Кейс | Задача |
 |---|---|
 | [Кривая дефолта — Сбербанк (GSOM Summer School)](sberbank-default-curve) | Прогноз PD-кривой на 12 кварталов, 12 независимых логрегов, макрофакторы — Gini 0.61–0.75 |
+| [RAG-пайплайн в Langflow: поиск по 161-ФЗ](langflow-rag-alfa) | Чанкинг с overlap, двухэтапный поиск с реранкингом и фильтрацией по метаданным (Qdrant), Langflow и Qdrant в Docker; side-by-side оценка на 10 вопросах: accuracy@1 90% с BGE-M3 |
 | [Кредитный скоринг](https://github.com/kruasanchikk1/credit-risk-scoring) | Сначала кластеризация (не сработала, silhouette 0.11), затем классификация — ROC-AUC 0.865, интерпретируемая логрег |
 
 ## Теория
