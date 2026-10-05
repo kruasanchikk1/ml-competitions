@@ -13,7 +13,7 @@
     build:
       context: .
       dockerfile: docker/langflow.Dockerfile
-    image: langflow-rag-alfa-langflow:local
+    image: langflow-rag-langflow:local
     container_name: rag_langflow
     ports:
       - "7860:7860"
