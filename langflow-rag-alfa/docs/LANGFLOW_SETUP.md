@@ -86,9 +86,10 @@ Qdrant — они должны совпадать.
 В компоненте LLM (или в глобальных настройках Langflow, если версия
 поддерживает интеграции) укажите:
 - `LANGFUSE_PUBLIC_KEY` / `LANGFUSE_SECRET_KEY` — из
-  http://localhost:3000 → Settings → API Keys (создать проект при первом
-  входе)
-- `LANGFUSE_HOST=http://langfuse:3000`
+  https://cloud.langfuse.com → Settings → API Keys (создать проект при
+  первом входе)
+- `LANGFUSE_HOST=https://cloud.langfuse.com` (по умолчанию в
+  `docker-compose.yml`; для собственного Langfuse укажите его адрес)
 
 После этого каждый вызов флоу появится в Langfuse как трейс: видно
 цепочку Retrieval → Prompt → LLM, токены, стоимость, латентность каждого

@@ -95,10 +95,12 @@ Accuracy@1 с реранкингом:   50%  (5/10)
   среде сборки — веса скачаются автоматически при первом запуске на
   машине с доступом в интернет, простой сменой `EMBEDDING_BACKEND=bge-m3`
   в `.env`. Код к этому уже готов, менять ничего не нужно.
-- `docker-compose.yml` синтаксически провалидирован (`docker compose
-  config`), но не поднимался целиком (в среде сборки не было запущенного
-  Docker-демона) — конфигурация собрана по официальной документации
-  Langflow / Qdrant / Langfuse.
+- `docker-compose.yml` проверен запуском (05.10.2026, Docker Desktop):
+  `docker compose up -d` поднимает Langflow (UI на :7860, `/health` отвечает
+  200) и Qdrant (:6333, коллекция `rag_knowledge_base` доступна). Langfuse
+  подключается через `LANGFUSE_*` (облачный `cloud.langfuse.com` по
+  умолчанию). Не проверялось: сборка флоу в UI и сквозной запрос с
+  реальным LLM-ключом.
 
 Это сознательный компромисс между "собрать реальную рабочую систему" и
 "честно показать, что проверено, а что нет" — на мой взгляд, вторая часть
@@ -110,7 +112,7 @@ Accuracy@1 с реранкингом:   50%  (5/10)
 git clone <этот репозиторий>
 cd langflow-rag-alfa
 cp .env.example .env          # заполните ключи LLM при необходимости
-docker compose up -d          # поднимет Langflow, Qdrant, Langfuse
+docker compose up -d          # поднимет Langflow (7860) и Qdrant (6333); Langfuse по умолчанию облачный (cloud.langfuse.com)
 
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
@@ -146,7 +148,7 @@ eval/
   run_sidebyside.py   сравнение с реранкингом / без
 docs/
   LANGFLOW_SETUP.md   пошаговая сборка флоу в Langflow UI
-docker-compose.yml    Langflow + Qdrant + Langfuse
+docker-compose.yml    Langflow + Qdrant (Langfuse: облако или отдельно)
 ```
 
 ## Питч для собеседования (кратко, STAR)
